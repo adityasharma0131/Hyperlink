@@ -2,11 +2,11 @@ import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 // Page components
-import Home from "./pages/Home/Home";
-import AboutApp from "./pages/AboutApp/AboutApp";
-import Blogs from "./pages/Blogs/Blogs";
-import Pricing from "./pages/Pricing/Pricing";
-import Contact from "./pages/Contact/Contact";
+import Home from "./Pages/Home/Home";
+import AboutApp from "./Pages/AboutApp/AboutApp";
+import Blogs from "./Pages/Blogs/Blogs";
+import Pricing from "./Pages/Pricing/Pricing";
+import Contact from "./Pages/Contact/Contact";
 
 // UI components
 import Navbar from "./Components/Navbar";
