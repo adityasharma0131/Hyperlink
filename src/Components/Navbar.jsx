@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import { FiMenu, FiX } from "react-icons/fi"; // Import icons from react-icons
-import HyperLinkLogo from "../assets/HyperLinkLogo.png";
+import HyperLinkLogo from "../assets/hyperlinklogo.png";
 
 const Navbar = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
