@@ -23,6 +23,10 @@ import { FaChartPie } from "react-icons/fa";
 import { MdOutlineDateRange } from "react-icons/md";
 import { AiOutlineSafety } from "react-icons/ai";
 
+import { BsFillHeartPulseFill } from "react-icons/bs";
+import { SiTicktick } from "react-icons/si";
+import { FiArrowRight } from "react-icons/fi";
+
 const Home = () => {
   const features = [
     {
@@ -256,8 +260,7 @@ const Home = () => {
               <div className="science-left">
                 <ToolButton icon={LuLayoutDashboard} text="BACKGROUND" />
                 <h1 className="science-heading">
-                  Science Behind The{" "}
-                  <span className="highlight-gradient">Product</span>
+                  Science Behind The <span className="highlight">Product</span>
                 </h1>
                 <p className="science-description">
                   Discover the Wonders Of Personalized Healthcare! Delve into
@@ -303,6 +306,120 @@ const Home = () => {
                     </div>
                   ))}
                 </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div className="pricing-section">
+        <Stars count={30} />
+        <div className="pricing-container">
+          <div className="pricing-header">
+            <ToolButton icon={LuLayoutDashboard} text="PRICING" />
+            <h1>
+              Discover Products With The{" "}
+              <span className="highlight">Best Pricing</span>
+            </h1>
+            <p>
+              Select from best plan, ensuring a perfect match. Need more or
+              less? Customize your subscription for a seamless fit!
+            </p>
+          </div>
+
+          <div className="pricing-cards">
+            {/* 3-Month Plan (Featured) */}
+            <div className="pricing-card highlight-card">
+              <div className="card-badge">Most Popular</div>
+              <div className="pricing-icon">
+                <BsFillHeartPulseFill />
+              </div>
+
+              <h2>3 months</h2>
+              <p className="pricing-subtitle">
+                Ideal for individuals beginning their preventive health journey.
+              </p>
+
+              <div className="pricing-amount">
+                <span className="original-price">₹799</span>
+                <span className="discounted-price">₹499</span>
+                <span className="billing-cycle">/per month</span>
+              </div>
+
+              <button className="pricing-button">
+                Get Started <FiArrowRight className="button-icon" />
+              </button>
+
+              <div className="pricing-benefits">
+                <h3>What you will get:</h3>
+                <ul>
+                  <li>
+                    <SiTicktick className="benefit-icon" /> Full Genetic
+                    Assessment via Helix AI
+                  </li>
+                  <li>
+                    <SiTicktick className="benefit-icon" /> Personalized
+                    Nutrigenomics Report & Diet Plan
+                  </li>
+                  <li>
+                    <SiTicktick className="benefit-icon" /> 2 Free Doctor
+                    Consultations
+                  </li>
+                  <li>
+                    <SiTicktick className="benefit-icon" /> Discounted
+                    Vaccination Services (10% off)
+                  </li>
+                  <li>
+                    <SiTicktick className="benefit-icon" /> Access to Health
+                    Locker
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            {/* 6-Month Plan */}
+            <div className="pricing-card">
+              <div className="pricing-icon">
+                <BsFillHeartPulseFill />
+              </div>
+
+              <h2>6 months</h2>
+              <p className="pricing-subtitle">
+                Perfect for continued health monitoring and progress tracking.
+              </p>
+
+              <div className="pricing-amount">
+                <span className="original-price">₹599</span>
+                <span className="discounted-price">₹359</span>
+                <span className="billing-cycle">/per month</span>
+              </div>
+
+              <button className="pricing-button secondary">
+                Get Started <FiArrowRight className="button-icon" />
+              </button>
+
+              <div className="pricing-benefits">
+                <h3>What you will get:</h3>
+                <ul>
+                  <li>
+                    <SiTicktick className="benefit-icon" /> 4 Free Doctor
+                    Consultations
+                  </li>
+                  <li>
+                    <SiTicktick className="benefit-icon" /> Advanced
+                    Nutrigenomics Personalization
+                  </li>
+                  <li>
+                    <SiTicktick className="benefit-icon" /> Priority Lab
+                    Bookings
+                  </li>
+                  <li>
+                    <SiTicktick className="benefit-icon" /> Priority Support
+                  </li>
+                  <li>
+                    <SiTicktick className="benefit-icon" /> Plus, everything in
+                    the 3-Month Plan
+                  </li>
+                </ul>
               </div>
             </div>
           </div>
