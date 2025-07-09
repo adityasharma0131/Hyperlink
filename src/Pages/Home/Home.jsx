@@ -177,7 +177,6 @@ const Home = () => {
           <Button type="primary">Know More</Button>
         </div>
       </div>
-
       <div className="features-section">
         <Stars count={20} />
         <ToolButton icon={LuLayoutDashboard} text="FEATURES" />
@@ -243,6 +242,68 @@ const Home = () => {
                 encrypted locker. Track activities, sleep, and genetics via the
                 Health 360 dashboard.
               </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div className="science-section">
+        <Stars count={20} />
+
+        <div className="science-container">
+          <div className="science-content-wrapper">
+            <div className="science-content">
+              {/* Left Column - Sticky within section */}
+              <div className="science-left">
+                <ToolButton icon={LuLayoutDashboard} text="BACKGROUND" />
+                <h1 className="science-heading">
+                  Science Behind The{" "}
+                  <span className="highlight-gradient">Product</span>
+                </h1>
+                <p className="science-description">
+                  Discover the Wonders Of Personalized Healthcare! Delve into
+                  the World of Genetics, Genetic Testing, Cancer Prevention,
+                  Precision Medicine, and Tailored Therapies – Lighting The Way
+                  To Improved Well-Being.
+                </p>
+              </div>
+
+              {/* Right Column - Scrollable Steps */}
+              <div className="science-steps-container">
+                <div className="science-steps">
+                  {[
+                    {
+                      number: "01",
+                      title: "EXPLORE THE HELIX",
+                      desc: "Understand how your DNA influences your health and disease susceptibility.",
+                    },
+                    {
+                      number: "02",
+                      title: "HEALTH PERSONALIZATION",
+                      desc: "Tailor your healthcare journey based on your unique genetic profile.",
+                    },
+                    {
+                      number: "03",
+                      title: "CANCER PREVENTION",
+                      desc: "Utilize advanced genomics to identify risks and implement preventive strategies.",
+                    },
+                    {
+                      number: "04",
+                      title: "PRECISION MEDICINE",
+                      desc: "Explore the future of tailored therapies that align with your health needs.",
+                    },
+                  ].map((step) => (
+                    <div className="step-card" key={step.number}>
+                      <div className="step-number" aria-hidden="true">
+                        {step.number}
+                      </div>
+                      <div className="step-content">
+                        <h3>{step.title}</h3>
+                        <p>{step.desc}</p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
             </div>
           </div>
         </div>
