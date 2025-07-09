@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
-import { FiMenu, FiX } from "react-icons/fi"; // Import icons from react-icons
+import { FiMenu, FiX } from "react-icons/fi";
 import HyperLinkLogo from "../assets/hyperlinklogo.png";
 
 const Navbar = () => {
@@ -18,6 +18,10 @@ const Navbar = () => {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  // Separate menu items for better control
+  const menuItems = ["Home", "About App", "Blogs", "Pricing"];
+  const mobileOnlyItems = ["Contact"];
 
   return (
     <nav className={`navbar ${scrolled ? "scrolled" : ""}`}>
@@ -43,34 +47,53 @@ const Navbar = () => {
           )}
         </button>
       </div>
+
       <div className={`navbar-center ${mobileMenuOpen ? "active" : ""}`}>
         <ul className="navbar-links">
-          {["Home", "About App", "Blogs", "Pricing", "Contact"].map(
-            (item, index) => {
-              const path =
-                item === "Home"
-                  ? "/"
-                  : `/${item.toLowerCase().replace(" ", "-")}`;
-              return (
-                <li key={item} style={{ animationDelay: `${index * 0.1}s` }}>
-                  <NavLink
-                    to={path}
-                    className={({ isActive }) =>
-                      isActive ? "nav-item active" : "nav-item"
-                    }
-                    onClick={() => setMobileMenuOpen(false)}
-                  >
-                    {item}
-                  </NavLink>
-                </li>
-              );
-            }
-          )}
+          {menuItems.map((item, index) => {
+            const path =
+              item === "Home"
+                ? "/"
+                : `/${item.toLowerCase().replace(/\s+/g, "-")}`;
+            return (
+              <li key={item} style={{ animationDelay: `${index * 0.1}s` }}>
+                <NavLink
+                  to={path}
+                  className={({ isActive }) =>
+                    isActive ? "nav-item active" : "nav-item"
+                  }
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  {item}
+                </NavLink>
+              </li>
+            );
+          })}
+
+          {/* Mobile-only "Contact" item */}
+          {mobileOnlyItems.map((item) => {
+            const path = `/${item.toLowerCase()}`;
+            return (
+              <li className="mobile-only" key={item}>
+                <NavLink
+                  to={path}
+                  className={({ isActive }) =>
+                    isActive ? "nav-item active" : "nav-item"
+                  }
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  {item}
+                </NavLink>
+              </li>
+            );
+          })}
         </ul>
       </div>
-      <div className="navbar-right">
+
+      {/* Desktop "Contact" button (hidden on mobile via CSS) */}
+      <div className="navbar-right desktop-only">
         <div className="sign-in">
-          <span className="sign-in-text">Sign In</span>
+          <span className="sign-in-text">Contact</span>
           <span className="sign-in-hover"></span>
         </div>
       </div>
