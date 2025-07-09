@@ -4,6 +4,7 @@ import "./style.css";
 import DietTrack from "../../assets/Diettracks.png";
 import SleepNotes from "../../assets/Sleepnotes.png";
 import HeroMockup from "../../assets/heromockup.png";
+import FeatureMockup from "../../assets/featuremockup.png";
 
 import Button from "../../Components/Button";
 import Stars from "../../Components/Stars";
@@ -16,6 +17,12 @@ import { GrTestDesktop } from "react-icons/gr";
 import { MdVaccines } from "react-icons/md";
 import { RiBarChartBoxFill } from "react-icons/ri";
 import { GiKnifeFork, GiNightSleep } from "react-icons/gi";
+import { LuLayoutDashboard } from "react-icons/lu";
+
+import { FaChartPie } from "react-icons/fa";
+import { MdOutlineDateRange } from "react-icons/md";
+import { AiOutlineSafety } from "react-icons/ai";
+
 const Home = () => {
   const features = [
     {
@@ -129,7 +136,8 @@ const Home = () => {
         </div>
       </div>
       <div className="about-app">
-        <Stars count={50} />
+        <Stars count={30} />
+        <ToolButton icon={CiCircleInfo} text="INFORMATION" />
 
         <div className="semicircle-background">
           <svg
@@ -155,10 +163,10 @@ const Home = () => {
           </h2>
         </div>
 
-        <div className="feature-grid">
+        <div className="information-grid">
           {features.map((item, idx) => (
-            <div className="feature-card" key={idx}>
-              <div className="feature-icon">{item.icon}</div>
+            <div className="information-card" key={idx}>
+              <div className="information-icon">{item.icon}</div>
               <h3>{item.title}</h3>
               <p>{item.desc}</p>
             </div>
@@ -170,8 +178,74 @@ const Home = () => {
         </div>
       </div>
 
-      <div>
-        
+      <div className="features-section">
+        <Stars count={20} />
+        <ToolButton icon={LuLayoutDashboard} text="FEATURES" />
+        <h1 className="features-heading">
+          Key Features Of This <span className="highlight">Application</span>
+        </h1>
+
+        <div className="features-grid">
+          {/* Left column */}
+          <div className="feature-column">
+            <div className="feature-card">
+              <div className="icon-wrapper" aria-hidden="true">
+                <FaChartPie />
+              </div>
+              <h3>AI–Powered Genetic Counselling with Helix</h3>
+              <p>
+                Helix, your AI health assistant, delivers DNA-based insights,
+                guides assessments, and connects you to personalized care.
+              </p>
+            </div>
+            <div className="feature-card">
+              <div className="icon-wrapper" aria-hidden="true">
+                <MdOutlineDateRange />
+              </div>
+              <h3>Smart Vaccination Management</h3>
+              <p>
+                From childhood to travel vaccines, easily book shots at home or
+                in clinics. AI-based reminders make vaccination safe and timely.
+              </p>
+            </div>
+          </div>
+
+          {/* Center image */}
+          <div className="feature-image-container">
+            <img
+              src={FeatureMockup}
+              alt="Mobile application mockup showing key features"
+              className="feature-image"
+              loading="lazy"
+            />
+          </div>
+
+          {/* Right column */}
+          <div className="feature-column">
+            <div className="feature-card">
+              <div className="icon-wrapper" aria-hidden="true">
+                <GiKnifeFork />
+              </div>
+              <h3>Nutrigenomics–Based Diet & Lifestyle Plans</h3>
+              <p>
+                Transform your nutrition with DNA-personalized meal plans,
+                fitness goals, and sleep cycles. Everything is custom-built
+                around your biology.
+              </p>
+            </div>
+            <div className="feature-card">
+              <div className="icon-wrapper" aria-hidden="true">
+                <AiOutlineSafety />
+              </div>
+              <h3>Secure Health Locker & Insights Dashboard</h3>
+              <p>
+                Store all your records, prescriptions, and certificates in an
+                encrypted locker. Track activities, sleep, and genetics via the
+                Health 360 dashboard.
+              </p>
+            </div>
+          </div>
+        </div>
       </div>
     </>
   );
