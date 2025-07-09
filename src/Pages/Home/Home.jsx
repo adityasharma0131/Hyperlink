@@ -5,6 +5,7 @@ import DietTrack from "../../assets/Diettracks.png";
 import SleepNotes from "../../assets/Sleepnotes.png";
 import HeroMockup from "../../assets/heromockup.png";
 import FeatureMockup from "../../assets/featuremockup.png";
+import CtaBg from "../../assets/ctabg.png";
 
 import Button from "../../Components/Button";
 import Stars from "../../Components/Stars";
@@ -26,6 +27,9 @@ import { AiOutlineSafety } from "react-icons/ai";
 import { BsFillHeartPulseFill } from "react-icons/bs";
 import { SiTicktick } from "react-icons/si";
 import { FiArrowRight } from "react-icons/fi";
+import { FaGooglePlay } from "react-icons/fa";
+import { FaApple } from "react-icons/fa";
+import { FaStar } from "react-icons/fa";
 
 const Home = () => {
   const features = [
@@ -422,6 +426,50 @@ const Home = () => {
                 </ul>
               </div>
             </div>
+          </div>
+        </div>
+      </div>
+      <div className="download-section">
+        {/* Background with parallax effect */}
+        <div className="download-bg-container">
+          <img
+            src={CtaBg}
+            alt="App Interface Screenshot"
+            className="download-bg"
+            loading="lazy"
+          />
+          <div className="bg-overlay"></div>
+        </div>
+
+        {/* Content overlay */}
+        <div className="download-content">
+          <ToolButton icon={LuLayoutDashboard} text="DOWNLOAD NOW" />
+
+          <h1 className="download-heading">
+            Download Our App With <br />
+            <span className="highlight">Android</span> Or{" "}
+            <span className="highlight">IOS</span> Now!
+          </h1>
+
+          <div className="download-buttons">
+            <Button className="download-btn primary">
+              <FaGooglePlay className="store-icon" />
+              <span>Get on Play Store</span>
+            </Button>
+            <Button className="download-btn primary">
+              <FaApple className="store-icon" />
+              <span>Download on App Store</span>
+            </Button>
+          </div>
+
+          {/* App rating showcase */}
+          <div className="app-rating">
+            <div className="stars">
+              {[...Array(5)].map((_, i) => (
+                <FaStar key={i} className="star-icon" />
+              ))}
+            </div>
+            <p>Rated 4.9/5 by 10,000+ users</p>
           </div>
         </div>
       </div>
