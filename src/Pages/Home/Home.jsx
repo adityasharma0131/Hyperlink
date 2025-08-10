@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "./style.css";
 import HomeVector from "../../assets/HomeVector.svg";
 
@@ -10,11 +10,15 @@ import Product2 from "../../assets/product2.svg";
 import Product3 from "../../assets/product3.svg";
 
 import VisionImg from "../../assets/visionimg.png";
+import SideTray from "../../Components/SideTray";
 
 const Home = () => {
+  const [isTrayOpen, setTrayOpen] = useState(false);
+
   return (
     <>
       <div className="home-container" id="Home">
+        <SideTray isOpen={isTrayOpen} onClose={() => setTrayOpen(false)} />
         <div className="home-bg-vector">
           <img src={HomeVector} alt="Home Background" />
         </div>
@@ -32,7 +36,9 @@ const Home = () => {
         </p>
 
         <div className="home-buttons">
-          <Button type="primary">Learn More</Button>
+          <Button type="primary" onClick={() => setTrayOpen(true)}>
+            Learn More
+          </Button>
         </div>
       </div>
 
