@@ -83,7 +83,7 @@ const Navbar = () => {
       </div>
 
       {/* Right Section */}
-      <div className="navbar-right desktop-only">
+      {/* <div className="navbar-right desktop-only">
         <HashLink
           smooth
           to="#contact"
@@ -93,7 +93,7 @@ const Navbar = () => {
           <span className="sign-in-text">Contact</span>
           <span className="sign-in-hover"></span>
         </HashLink>
-      </div>
+      </div> */}
     </nav>
   );
 };

@@ -10,7 +10,7 @@ import Product2 from "../../assets/product2.svg";
 import Product3 from "../../assets/product3.svg";
 
 import VisionImg from "../../assets/visionimg.png";
-import SideTray from "../../Components/SideTray";
+import HomeSideTray from "../../Components/HomeSideTray";
 
 const Home = () => {
   const [isTrayOpen, setTrayOpen] = useState(false);
@@ -18,7 +18,7 @@ const Home = () => {
   return (
     <>
       <div className="home-container" id="Home">
-        <SideTray isOpen={isTrayOpen} onClose={() => setTrayOpen(false)} />
+        <HomeSideTray isOpen={isTrayOpen} onClose={() => setTrayOpen(false)} />
         <div className="home-bg-vector">
           <img src={HomeVector} alt="Home Background" />
         </div>
