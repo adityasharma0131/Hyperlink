@@ -214,6 +214,7 @@ const AboutSideTray = ({ isOpen, onClose, type }) => {
 /* Cards */
 .about-feature-card {
   background: rgba(255, 255, 255, 0.05);
+  color:white;
   border-left: 3px solid #a855f7;
   border-radius: 10px;
   padding: 14px;

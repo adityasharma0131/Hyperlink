@@ -12,15 +12,25 @@ import Product3 from "../../assets/product3.svg";
 import VisionImg from "../../assets/visionimg.png";
 import HomeSideTray from "../../Components/HomeSideTray";
 import AboutSideTray from "../../Components/AboutSideTray";
+import ScienceSideTray from "../../Components/ScienceSideTray";
 
 const Home = () => {
   const [isTrayOpen, setTrayOpen] = useState(false);
   const [isATrayOpen, setATrayOpen] = useState(false);
   const [trayType, setTrayType] = useState(null);
 
+  const [isSTrayOpen, setIsSTrayOpen] = useState(false);
+
   const handleKnowMore = (type) => {
     setTrayType(type);
     setATrayOpen(true);
+  };
+
+  const handleLearnMoreClick = () => {
+    setIsSTrayOpen(true);
+  };
+  const handleTrayClose = () => {
+    setIsSTrayOpen(false);
   };
 
   return (
@@ -151,7 +161,7 @@ const Home = () => {
         <div className="science-container">
           <div className="science-content-wrapper">
             <div className="science-content">
-              {/* Left Column - Sticky within section */}
+              {/* Left Column */}
               <div className="science-left">
                 <h1 className="science-heading">
                   Science Behind Our <span className="highlight">Product</span>
@@ -163,7 +173,9 @@ const Home = () => {
                   <br />
                   Discover a smarter, safer, DNA-driven way to live well.
                 </p>
-                <Button type="primary">Learn More</Button>
+                <Button type="primary" onClick={handleLearnMoreClick}>
+                  Learn More
+                </Button>
               </div>
 
               {/* Right Column - 2x2 Steps */}
@@ -204,6 +216,8 @@ const Home = () => {
             </div>
           </div>
         </div>
+
+        <ScienceSideTray isOpen={isSTrayOpen} onClose={handleTrayClose} />
       </div>
 
       <div className="vision-section" id="About">

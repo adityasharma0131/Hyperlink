@@ -341,7 +341,6 @@
   gap: 24px;
   flex-wrap: wrap;
   justify-content: center;
-  padding: 40px;
 }
 
 .product-card {
@@ -617,8 +616,7 @@
   .science-heading {
     line-height: 1.2;
   }
-}
-/* ===== Vision Section ===== */
+} /* ===== Vision Section ===== */
 .vision-section {
   max-width: 1100px;
   margin: auto;
@@ -648,16 +646,17 @@
   display: flex;
   flex-wrap: wrap;
   gap: 24px;
-  align-items: center;
+  align-items: stretch; /* ensures equal height for both columns */
   background-color: #1a1a24;
-  padding: 20px;
   border-radius: 12px;
 }
 
 /* ===== Image Styling ===== */
 .vision-image {
   flex: 1 1 280px;
-  text-align: center;
+  display: flex;
+  align-items: flex-end; /* pushes image to bottom */
+  justify-content: center;
 }
 
 .vision-image img {
@@ -670,6 +669,7 @@
 /* ===== Text Styling ===== */
 .vision-text {
   flex: 2 1 300px;
+  padding: 20px;
 }
 
 .vision-text p {
@@ -693,12 +693,13 @@
     padding: 16px;
   }
 
-  .vision-text {
-    order: 2;
-  }
-
   .vision-image {
     order: 1;
+    align-items: center; /* center image vertically for small screens */
+  }
+
+  .vision-text {
+    order: 2;
   }
 
   .vision-text h3 {
@@ -723,12 +724,12 @@
     font-size: 0.95rem;
   }
 }
+
 .banner-container {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: #0d0d0d;
-  padding: 40px;
+  padding: 100px 40px;
   color: #fff;
   gap: 30px;
   flex-wrap: wrap;
