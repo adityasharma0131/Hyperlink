@@ -39,10 +39,6 @@ ul {
 a {
   text-decoration: none;
 }
-html {
-  scroll-behavior: smooth;
-  scroll-padding-top: 100px; /* makes anchor links land below fixed navbar */
-}
 
 /* =======  HEADER  ======= */
 .navbar {
@@ -830,8 +826,3 @@ html {
     min-width: 140px;
   }
 }
-.no-scroll {
-  overflow: hidden !important;
-  position: fixed; /* prevents mobile scroll bounce */
-  width: 100%;
-} 

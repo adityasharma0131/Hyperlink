@@ -11,9 +11,17 @@ import Product3 from "../../assets/product3.svg";
 
 import VisionImg from "../../assets/visionimg.png";
 import HomeSideTray from "../../Components/HomeSideTray";
+import AboutSideTray from "../../Components/AboutSideTray";
 
 const Home = () => {
   const [isTrayOpen, setTrayOpen] = useState(false);
+  const [isATrayOpen, setATrayOpen] = useState(false);
+  const [trayType, setTrayType] = useState(null);
+
+  const handleKnowMore = (type) => {
+    setTrayType(type);
+    setATrayOpen(true);
+  };
 
   return (
     <>
@@ -58,6 +66,7 @@ const Home = () => {
         </div>
 
         <div className="product-card-container">
+          {/* Vaccination Card */}
           <div className="product-card">
             <h2 className="product-title">Vaccination</h2>
             <p className="product-subtitle">
@@ -74,9 +83,15 @@ const Home = () => {
               Hyperlink Vaccination empowers families with data-driven,
               personalized protection across every life stage.
             </p>
-            <Button type="primary">Know More</Button>
+            <Button
+              type="primary"
+              onClick={() => handleKnowMore("vaccination")}
+            >
+              Know More
+            </Button>
           </div>
 
+          {/* Wellness Card */}
           <div className="product-card">
             <h2 className="product-title">Wellness</h2>
             <p className="product-subtitle">
@@ -90,9 +105,12 @@ const Home = () => {
               Tailored health programs and lifestyle plans that adapt with you,
               ensuring optimal wellness at every stage of life.
             </p>
-            <Button type="primary">Know More</Button>
+            <Button type="primary" onClick={() => handleKnowMore("wellness")}>
+              Know More
+            </Button>
           </div>
 
+          {/* Precision Care Card */}
           <div className="product-card">
             <h2 className="product-title">Precision Care</h2>
             <p className="product-subtitle">
@@ -110,10 +128,19 @@ const Home = () => {
               From preventive care to advanced treatment, we combine data and
               genetics to provide the right care at the right time.
             </p>
-            <Button type="primary">Know More</Button>
+            <Button type="primary" onClick={() => handleKnowMore("precision")}>
+              Know More
+            </Button>
           </div>
         </div>
       </div>
+
+      {/* About Tray */}
+      <AboutSideTray
+        isOpen={isATrayOpen}
+        onClose={() => setATrayOpen(false)}
+        type={trayType}
+      />
 
       <div className="science-section" id="Background">
         <Stars count={20} />

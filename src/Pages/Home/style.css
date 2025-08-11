@@ -223,6 +223,7 @@
   text-align: center;
   position: relative;
   overflow: hidden;
+  z-index: 0; /* make sure it's behind side tray */
 }
 /* BLACK HOLE BACKGROUND */
 .blackhole-background {
@@ -314,7 +315,7 @@
 .feature-grid,
 .know-more {
   position: relative;
-  z-index: 2;
+  z-index: 1;
 }
 
 /* HEADLINE */
