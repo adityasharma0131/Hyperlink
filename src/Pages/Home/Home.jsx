@@ -9,10 +9,13 @@ import Product1 from "../../assets/product1.svg";
 import Product2 from "../../assets/product2.svg";
 import Product3 from "../../assets/product3.svg";
 
+
+
 import VisionImg from "../../assets/visionimg.png";
 import HomeSideTray from "../../Components/HomeSideTray";
 import AboutSideTray from "../../Components/AboutSideTray";
 import ScienceSideTray from "../../Components/ScienceSideTray";
+import WhoAreWeSideTray from "../../Components/WhoAreWeSideTray";
 
 const Home = () => {
   const [isTrayOpen, setTrayOpen] = useState(false);
@@ -20,6 +23,7 @@ const Home = () => {
   const [trayType, setTrayType] = useState(null);
 
   const [isSTrayOpen, setIsSTrayOpen] = useState(false);
+  const [isWTrayOpen, setWIsTrayOpen] = useState(false);
 
   const handleKnowMore = (type) => {
     setTrayType(type);
@@ -255,14 +259,19 @@ const Home = () => {
               With every breakthrough, we move closer to a future where
               personalized care isn’t a privilege—it’s the global standard.
             </p>
-
             <h3>
               We’re not just imagining the future of healthcare. We’re
               engineering it one life, one genome, one innovation at a time.
             </h3>
-            <Button type="primary">Who We Are</Button>
+            <Button type="primary" onClick={() => setWIsTrayOpen(true)}>
+              Who We Are
+            </Button>{" "}
           </div>
         </div>
+        <WhoAreWeSideTray
+          isOpen={isWTrayOpen}
+          onClose={() => setWIsTrayOpen(false)}
+        />
       </div>
 
       <div className="banner-container">

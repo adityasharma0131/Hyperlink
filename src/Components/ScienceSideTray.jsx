@@ -148,8 +148,7 @@ const ScienceSideTray = ({ isOpen, onClose }) => {
           right: calc(-1 * var(--tray-width));
           width: var(--tray-width);
           height: 80vh;
-          background: var(--tray-bg);
-          backdrop-filter: blur(18px);
+    background: rgba(90, 45, 138, 0.95);          backdrop-filter: blur(18px);
           border-radius: 16px 0 0 16px;
           box-shadow: -8px 0 28px rgba(0, 0, 0, 0.25);
           display: flex;
@@ -250,6 +249,7 @@ const ScienceSideTray = ({ isOpen, onClose }) => {
           .science-side-tray-container {
             height: 80vh;
             top: 15%;
+            width: 95%;
             border-radius: 16px;
             transform: none;
           }
