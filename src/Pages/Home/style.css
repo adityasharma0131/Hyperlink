@@ -848,7 +848,7 @@ input::placeholder {
   display: flex;
   flex-direction: column;
   gap: 15px;
-  min-width: 280px;
+  min-width: 255px;
 }
 
 .contact-form input,

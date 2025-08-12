@@ -345,15 +345,56 @@ const Home = () => {
               className={`form-result ${
                 result.includes("Success") ? "success" : "error"
               }`}
-            >
-              {result}
-            </div>
+            ></div>
           )}
         </form>
         <ThankyouSideTray
           isOpen={isThankyouOpen}
           onClose={() => setIsThankyouOpen(false)}
         />
+      </div>
+
+      <div className="contact-container" id="Contact">
+        <h1>
+          <span className="highlight">Connect</span> With Us!
+        </h1>
+
+        <div className="contact-card">
+          {/* Wrap fields in a form and hook onSubmit */}
+          <form className="contact-form" onSubmit={onSubmit}>
+            <input
+              type="text"
+              name="name"
+              placeholder="Full Name"
+              aria-label="Full Name"
+              required
+            />
+            <input
+              type="email"
+              name="email"
+              placeholder="Email"
+              aria-label="Email"
+              required
+            />
+            <input
+              type="tel"
+              name="phone"
+              placeholder="+91 98765 43210"
+              aria-label="Phone"
+              required
+            />
+            <textarea
+              name="message"
+              placeholder="Write your message here..."
+              aria-label="Message"
+              required
+            ></textarea>
+
+            <Button type="primary" htmlType="submit" disabled={isSubmitting}>
+              {isSubmitting ? "Sending..." : "Submit"}
+            </Button>
+          </form>
+        </div>
       </div>
     </>
   );

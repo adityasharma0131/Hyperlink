@@ -612,7 +612,7 @@ a {
 
 .footer-links-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr) 1.5fr;
+  grid-template-columns: repeat(2, 1fr) 1.5fr;
   gap: 40px;
 }
 

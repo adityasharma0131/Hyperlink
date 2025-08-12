@@ -46,65 +46,27 @@ const Footer = () => {
               <span>+1 (555) 123-4567</span>
             </div>
           </div>
-
-          <div className="app-badges">
-            <button className="app-badge">
-              <FaGooglePlay className="badge-icon" />
-              <div>
-                <span>GET IT ON</span>
-                <span>Google Play</span>
-              </div>
-            </button>
-            <button className="app-badge">
-              <FaApple className="badge-icon" />
-              <div>
-                <span>Download on the</span>
-                <span>App Store</span>
-              </div>
-            </button>
-          </div>
         </div>
 
         {/* Links Sections */}
         <div className="footer-links-grid">
           <div className="footer-column">
-            <h4 className="column-title">Company</h4>
+            <h4 className="column-title">Quick Links</h4>
             <ul className="column-links">
               <li>
-                <a href="#">About us</a>
+                <a href="#">Home</a>
               </li>
               <li>
-                <a href="#">Careers</a>
+                <a href="#">Products</a>
               </li>
               <li>
-                <a href="#">Blog</a>
+                <a href="#">Background</a>
               </li>
               <li>
-                <a href="#">Press</a>
+                <a href="#">About Us</a>
               </li>
               <li>
-                <a href="#">Pricing</a>
-              </li>
-            </ul>
-          </div>
-
-          <div className="footer-column">
-            <h4 className="column-title">Services</h4>
-            <ul className="column-links">
-              <li>
-                <a href="#">Doctor Consultation</a>
-              </li>
-              <li>
-                <a href="#">Lab Tests</a>
-              </li>
-              <li>
-                <a href="#">Vaccination</a>
-              </li>
-              <li>
-                <a href="#">Diet Planning</a>
-              </li>
-              <li>
-                <a href="#">Health Tracking</a>
+                <a href="#">Contacts</a>
               </li>
             </ul>
           </div>
@@ -158,6 +120,23 @@ const Footer = () => {
                   <IoMdMail />
                 </button>
               </div>
+            </div>
+
+            <div className="app-badges">
+              <button className="app-badge">
+                <FaGooglePlay className="badge-icon" />
+                <div>
+                  <span>GET IT ON</span>
+                  <span>Google Play</span>
+                </div>
+              </button>
+              <button className="app-badge">
+                <FaApple className="badge-icon" />
+                <div>
+                  <span>Download on the</span>
+                  <span>App Store</span>
+                </div>
+              </button>
             </div>
           </div>
         </div>
