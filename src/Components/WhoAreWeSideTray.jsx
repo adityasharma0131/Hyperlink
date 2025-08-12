@@ -4,7 +4,6 @@ import Founder1 from "../assets/founderprofile.jpg";
 import Founder2 from "../assets/founderprofile.jpg";
 import Button from "./Button";
 import HyperLink from "../assets/hyperlinklogo.png";
-import "./style.css";
 
 const WhoAreWeSideTray = ({ isOpen, onClose }) => {
   const scrollPosRef = useRef(0);

@@ -9,13 +9,12 @@ import Product1 from "../../assets/product1.svg";
 import Product2 from "../../assets/product2.svg";
 import Product3 from "../../assets/product3.svg";
 
-
-
 import VisionImg from "../../assets/visionimg.png";
 import HomeSideTray from "../../Components/HomeSideTray";
 import AboutSideTray from "../../Components/AboutSideTray";
 import ScienceSideTray from "../../Components/ScienceSideTray";
 import WhoAreWeSideTray from "../../Components/WhoAreWeSideTray";
+import ThankyouSideTray from "../../Components/ThankyouSideTray";
 
 const Home = () => {
   const [isTrayOpen, setTrayOpen] = useState(false);
@@ -35,6 +34,41 @@ const Home = () => {
   };
   const handleTrayClose = () => {
     setIsSTrayOpen(false);
+  };
+
+  const [result, setResult] = useState("");
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isThankyouOpen, setIsThankyouOpen] = useState(false);
+
+  const onSubmit = async (event) => {
+    event.preventDefault();
+    setIsSubmitting(true);
+    setResult("Sending...");
+
+    const formData = new FormData(event.target);
+    formData.append("access_key", "ba521758-99c9-4b4b-bbfd-15b09b531ad7");
+
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        body: formData,
+      });
+
+      const data = await response.json();
+
+      if (data.success) {
+        setResult("Form Submitted Successfully!");
+        event.target.reset();
+        setIsThankyouOpen(true); // Show Thank You tray
+      } else {
+        setResult(data.message || "Error submitting form");
+      }
+    } catch (error) {
+      setResult("Network error. Please try again.");
+      console.error("Error:", error);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -289,75 +323,37 @@ const Home = () => {
             features.
           </p>
         </div>
-        <form className="banner-form">
+        <form className="contact-form" onSubmit={onSubmit}>
           <div className="form-row">
+            <input type="text" name="name" placeholder="First Name" required />
             <input
               type="text"
-              placeholder="First Name"
-              aria-label="First Name"
-              required
-            />
-            <input
-              type="text"
+              name="last_name"
               placeholder="Last Name"
-              aria-label="Last Name"
               required
             />
           </div>
-          <input
-            type="email"
-            placeholder="Email"
-            aria-label="Email Address"
-            required
-          />
-          <Button type="primary"> Join The WaitList</Button>
+
+          <input type="email" name="email" placeholder="Email" required />
+
+          <Button type="submit" variant="primary">
+            {isSubmitting ? "Sending..." : "Send Message"}
+          </Button>
+
+          {result && (
+            <div
+              className={`form-result ${
+                result.includes("Success") ? "success" : "error"
+              }`}
+            >
+              {result}
+            </div>
+          )}
         </form>
-      </div>
-      <div className="contact-container" id="Contact">
-        <h1>
-          <span className="highlight">Connect</span> With Us!
-        </h1>
-
-        <div className="contact-card">
-          <div className="contact-form">
-            <input
-              type="text"
-              placeholder="Full Name"
-              aria-label="Full Name"
-              required
-            />
-            <input
-              type="email"
-              placeholder="Email"
-              aria-label="Email"
-              required
-            />
-            <input
-              type="tel"
-              placeholder="+91 98765 43210"
-              aria-label="Phone"
-              required
-            />
-            <textarea
-              placeholder="Write your message here..."
-              aria-label="Message"
-            ></textarea>
-            <Button type="primary"> Submit</Button>
-          </div>
-
-          <div className="contact-map">
-            <iframe
-              src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3445.939757517641!2d72.89663949999999!3d19.111296799999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMTnCsDA2JzQwLjciTiA3MsKwNTMnNDcuOSJF!5e1!3m2!1sen!2sin!4v1754793882299!5m2!1sen!2sin"
-              width="100%"
-              height="100%"
-              style={{ border: 0 }}
-              allowFullScreen
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-              title="Our Location"
-            ></iframe>
-          </div>
-        </div>
+        <ThankyouSideTray
+          isOpen={isThankyouOpen}
+          onClose={() => setIsThankyouOpen(false)}
+        />
       </div>
     </>
   );
