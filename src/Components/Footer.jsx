@@ -7,13 +7,19 @@ import {
   FaTwitter,
   FaLinkedin,
 } from "react-icons/fa";
-
-import { FaGooglePlay } from "react-icons/fa";
-import { FaApple } from "react-icons/fa";
 import { IoMdMail } from "react-icons/io";
 import { FiPhone } from "react-icons/fi";
+import { HashLink } from "react-router-hash-link"; // ✅ Correct import
 
 const Footer = () => {
+  const navLinks = [
+    { name: "Home", id: "Home" },
+    { name: "Products", id: "Products" },
+    { name: "Background", id: "Background" },
+    { name: "About Us", id: "About" },
+    { name: "Contact", id: "Contact" },
+  ];
+
   return (
     <footer className="footer">
       <div className="footer-wave"></div>
@@ -39,12 +45,12 @@ const Footer = () => {
           <div className="contact-info">
             <div className="contact-item">
               <IoMdMail className="contact-icon" />
-              <span>support@hyperlinkhealth.com</span>
+              <span>info@hyperlink.health</span>
             </div>
-            <div className="contact-item">
+            {/* <div className="contact-item">
               <FiPhone className="contact-icon" />
               <span>+1 (555) 123-4567</span>
-            </div>
+            </div> */}
           </div>
         </div>
 
@@ -53,21 +59,17 @@ const Footer = () => {
           <div className="footer-column">
             <h4 className="column-title">Quick Links</h4>
             <ul className="column-links">
-              <li>
-                <a href="#">Home</a>
-              </li>
-              <li>
-                <a href="#">Products</a>
-              </li>
-              <li>
-                <a href="#">Background</a>
-              </li>
-              <li>
-                <a href="#">About Us</a>
-              </li>
-              <li>
-                <a href="#">Contacts</a>
-              </li>
+              {navLinks.map((link) => (
+                <li key={link.id}>
+                  <HashLink
+                    smooth
+                    to={`/#${link.id}`} // ✅ Correct usage
+                    className="footer-link"
+                  >
+                    {link.name}
+                  </HashLink>
+                </li>
+              ))}
             </ul>
           </div>
 
@@ -75,19 +77,10 @@ const Footer = () => {
             <h4 className="column-title">Resources</h4>
             <ul className="column-links">
               <li>
-                <a href="#">Help Center</a>
+                <a href="/privacy">Privacy Policy</a>
               </li>
               <li>
-                <a href="#">Privacy Policy</a>
-              </li>
-              <li>
-                <a href="#">Terms of Service</a>
-              </li>
-              <li>
-                <a href="#">Cookie Policy</a>
-              </li>
-              <li>
-                <a href="#">Status</a>
+                <a href="/terms">Terms of Service</a>
               </li>
             </ul>
           </div>
@@ -112,7 +105,7 @@ const Footer = () => {
               </a>
             </div>
 
-            <div className="newsletter">
+            {/* <div className="newsletter">
               <h5>Subscribe to our newsletter</h5>
               <div className="newsletter-input">
                 <input type="email" placeholder="Your email address" />
@@ -120,8 +113,9 @@ const Footer = () => {
                   <IoMdMail />
                 </button>
               </div>
-            </div>
+            </div> */}
 
+            {/* 
             <div className="app-badges">
               <button className="app-badge">
                 <FaGooglePlay className="badge-icon" />
@@ -137,18 +131,18 @@ const Footer = () => {
                   <span>App Store</span>
                 </div>
               </button>
-            </div>
+            </div> */}
           </div>
         </div>
       </div>
 
+      {/* Bottom Section */}
       <div className="footer-bottom">
         <div className="container">
           <small>© 2025 Hyperlink Technologies. All rights reserved.</small>
           <div className="legal-links">
-            <a href="#">Privacy Policy</a>
-            <a href="#">Terms of Service</a>
-            <a href="#">Cookies</a>
+            <a href="/privacy">Privacy Policy</a>
+            <a href="/terms">Terms of Service</a>
           </div>
         </div>
       </div>

@@ -22,7 +22,6 @@ const Home = () => {
   const [trayType, setTrayType] = useState(null);
 
   const [isSTrayOpen, setIsSTrayOpen] = useState(false);
-  const [isWTrayOpen, setWIsTrayOpen] = useState(false);
 
   const handleKnowMore = (type) => {
     setTrayType(type);
@@ -39,6 +38,7 @@ const Home = () => {
   const [result, setResult] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isThankyouOpen, setIsThankyouOpen] = useState(false);
+  const [isJTrayOpen, setIsJTrayOpen] = useState(false);
 
   const onSubmit = async (event) => {
     event.preventDefault();
@@ -59,7 +59,7 @@ const Home = () => {
       if (data.success) {
         setResult("Form Submitted Successfully!");
         event.target.reset();
-        setIsThankyouOpen(true); // Show Thank You tray
+        setIsThankyouOpen(true); // ✅ Show Thank You tray
       } else {
         setResult(data.message || "Error submitting form");
       }
@@ -70,7 +70,6 @@ const Home = () => {
       setIsSubmitting(false);
     }
   };
-
   return (
     <>
       <div className="home-container" id="Home">
@@ -83,7 +82,7 @@ const Home = () => {
 
         <h1 className="home-heading">
           Personalized Health. Powered by You. <br />
-          <span className="highlight">Meet Hyperlink</span> <br />
+          <span className="home-highlight ">Meet Hyperlink</span> <br />
           the future of healthcare, today.
         </h1>
 
@@ -109,7 +108,7 @@ const Home = () => {
 
         <div className="about-header">
           <h2>
-            Hyperlink <span className="highlight">Products</span>
+            Hyperlink <span className="home-highlight">Products</span>
           </h2>
         </div>
 
@@ -131,12 +130,14 @@ const Home = () => {
               Hyperlink Vaccination empowers families with data-driven,
               personalized protection across every life stage.
             </p>
-            <Button
-              type="primary"
-              onClick={() => handleKnowMore("vaccination")}
-            >
-              Know More
-            </Button>
+            <div className="contact-btn-container">
+              <Button
+                type="primary"
+                onClick={() => handleKnowMore("vaccination")}
+              >
+                Know More
+              </Button>
+            </div>
           </div>
 
           {/* Wellness Card */}
@@ -153,9 +154,11 @@ const Home = () => {
               Tailored health programs and lifestyle plans that adapt with you,
               ensuring optimal wellness at every stage of life.
             </p>
-            <Button type="primary" onClick={() => handleKnowMore("wellness")}>
-              Know More
-            </Button>
+            <div className="contact-btn-container">
+              <Button type="primary" onClick={() => handleKnowMore("wellness")}>
+                Know More
+              </Button>
+            </div>
           </div>
 
           {/* Precision Care Card */}
@@ -176,9 +179,14 @@ const Home = () => {
               From preventive care to advanced treatment, we combine data and
               genetics to provide the right care at the right time.
             </p>
-            <Button type="primary" onClick={() => handleKnowMore("precision")}>
-              Know More
-            </Button>
+            <div className="contact-btn-container">
+              <Button
+                type="primary"
+                onClick={() => handleKnowMore("precision")}
+              >
+                Know More
+              </Button>
+            </div>
           </div>
         </div>
       </div>
@@ -202,7 +210,8 @@ const Home = () => {
               {/* Left Column */}
               <div className="science-left">
                 <h1 className="science-heading">
-                  Science Behind Our <span className="highlight">Product</span>
+                  Science Behind Our{" "}
+                  <span className="home-highlight">Product</span>
                 </h1>
                 <p className="science-description">
                   Where science meets you in personalized care, powered by
@@ -259,12 +268,11 @@ const Home = () => {
       </div>
 
       <div className="vision-section" id="About">
-        {" "}
-        <Stars count={20} />
+        <Stars count={10} />{" "}
         <div className="vision-header">
           <h1>
             Visionaries In Medicine, Technology, and <br />
-            <span className="highlight">Human-Centered Design.</span>
+            <span className="home-highlight">Human-Centered Design.</span>
           </h1>
           <p className="subtitle">
             A Pioneering Team Shaping The Future Of Personalized
@@ -297,24 +305,15 @@ const Home = () => {
               We’re not just imagining the future of healthcare. We’re
               engineering it one life, one genome, one innovation at a time.
             </h3>
-            <Button type="primary" onClick={() => setWIsTrayOpen(true)}>
-              Who We Are
-            </Button>{" "}
           </div>
         </div>
-        <WhoAreWeSideTray
-          isOpen={isWTrayOpen}
-          onClose={() => setWIsTrayOpen(false)}
-        />
       </div>
-
       <div className="banner-container">
-        {" "}
-        <Stars count={20} />
+        <Stars count={10} />
         <div className="banner-text">
           <h1>
-            Be The First To Experience
-            <span className="highlight">Personalized Healthcare</span>
+            Be The First To Experience{" "}
+            <span className="home-highlight">Personalized Healthcare</span>
           </h1>
           <p>
             We’re building something extraordinary—where your health journey
@@ -322,79 +321,87 @@ const Home = () => {
             and get priority access to Hyperlink's upcoming products and
             features.
           </p>
-        </div>
-        <form className="contact-form" onSubmit={onSubmit}>
-          <div className="form-row">
-            <input type="text" name="name" placeholder="First Name" required />
-            <input
-              type="text"
-              name="last_name"
-              placeholder="Last Name"
-              required
-            />
+          <div className="banner-btn-container">
+            <Button type="primary" onClick={() => setIsJTrayOpen(true)}>
+              Join The Waitlist
+            </Button>
           </div>
+        </div>
+      </div>
 
-          <input type="email" name="email" placeholder="Email" required />
+      {/* Side Tray */}
+      <WhoAreWeSideTray
+        isOpen={isJTrayOpen}
+        onClose={() => setIsJTrayOpen(false)}
+      />
 
-          <Button type="submit" variant="primary">
-            {isSubmitting ? "Sending..." : "Send Message"}
-          </Button>
+      <div className="contact-container" id="Contact">
+        <h1>
+          <span className="home-highlight">Connect</span> With Us!
+        </h1>
 
-          {result && (
-            <div
-              className={`form-result ${
-                result.includes("Success") ? "success" : "error"
-              }`}
-            ></div>
-          )}
-        </form>
+        <div className="contact-card">
+          <form className="contact-form" onSubmit={onSubmit}>
+            <div className="form-group">
+              <label htmlFor="name">Name</label>
+              <input
+                type="text"
+                id="name"
+                name="name"
+                placeholder="Full Name"
+                aria-label="Full Name"
+                required
+              />
+            </div>
+
+            <div className="form-group">
+              <label htmlFor="email">Email</label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                placeholder="Email"
+                aria-label="Email"
+                required
+              />
+            </div>
+
+            <div className="form-group">
+              <label htmlFor="phone">Phone Number</label>
+              <input
+                type="tel"
+                id="phone"
+                name="phone"
+                placeholder="+91 98765 43210"
+                aria-label="Phone"
+                required
+              />
+            </div>
+
+            <div className="form-group">
+              <label htmlFor="message">Message</label>
+              <textarea
+                id="message"
+                name="message"
+                placeholder="Write your message here..."
+                aria-label="Message"
+                required
+              ></textarea>
+            </div>
+
+            <div className="contact-btn-container">
+              <Button type="primary" disabled={isSubmitting}>
+                {isSubmitting ? "Sending..." : "Submit"}
+              </Button>
+            </div>
+          </form>
+
+          {/* Result / Status Message */}
+        </div>
         <ThankyouSideTray
           isOpen={isThankyouOpen}
           onClose={() => setIsThankyouOpen(false)}
         />
-      </div>
-
-      <div className="contact-container" id="Contact">
-        <h1>
-          <span className="highlight">Connect</span> With Us!
-        </h1>
-
-        <div className="contact-card">
-          {/* Wrap fields in a form and hook onSubmit */}
-          <form className="contact-form" onSubmit={onSubmit}>
-            <input
-              type="text"
-              name="name"
-              placeholder="Full Name"
-              aria-label="Full Name"
-              required
-            />
-            <input
-              type="email"
-              name="email"
-              placeholder="Email"
-              aria-label="Email"
-              required
-            />
-            <input
-              type="tel"
-              name="phone"
-              placeholder="+91 98765 43210"
-              aria-label="Phone"
-              required
-            />
-            <textarea
-              name="message"
-              placeholder="Write your message here..."
-              aria-label="Message"
-              required
-            ></textarea>
-
-            <Button type="primary" htmlType="submit" disabled={isSubmitting}>
-              {isSubmitting ? "Sending..." : "Submit"}
-            </Button>
-          </form>
-        </div>
       </div>
     </>
   );
