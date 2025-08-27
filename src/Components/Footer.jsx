@@ -8,7 +8,6 @@ import {
   FaLinkedin,
 } from "react-icons/fa";
 import { IoMdMail } from "react-icons/io";
-import { FiPhone } from "react-icons/fi";
 import { HashLink } from "react-router-hash-link"; // ✅ Correct import
 
 const Footer = () => {
@@ -47,10 +46,6 @@ const Footer = () => {
               <IoMdMail className="contact-icon" />
               <span>info@hyperlink.health</span>
             </div>
-            {/* <div className="contact-item">
-              <FiPhone className="contact-icon" />
-              <span>+1 (555) 123-4567</span>
-            </div> */}
           </div>
         </div>
 
@@ -63,7 +58,7 @@ const Footer = () => {
                 <li key={link.id}>
                   <HashLink
                     smooth
-                    to={`/#${link.id}`} // ✅ Correct usage
+                    to={`/#${link.id}`} // ✅ Always route back to Home page
                     className="footer-link"
                   >
                     {link.name}
@@ -77,10 +72,10 @@ const Footer = () => {
             <h4 className="column-title">Resources</h4>
             <ul className="column-links">
               <li>
-                <a href="/privacy">Privacy Policy</a>
+                <a href="/privacy-policy">Privacy Policy</a>
               </li>
               <li>
-                <a href="/terms">Terms of Service</a>
+                <a href="/terms-of-service">Terms of Service</a>
               </li>
             </ul>
           </div>
@@ -104,34 +99,6 @@ const Footer = () => {
                 <FaLinkedin />
               </a>
             </div>
-
-            {/* <div className="newsletter">
-              <h5>Subscribe to our newsletter</h5>
-              <div className="newsletter-input">
-                <input type="email" placeholder="Your email address" />
-                <button type="submit">
-                  <IoMdMail />
-                </button>
-              </div>
-            </div> */}
-
-            {/* 
-            <div className="app-badges">
-              <button className="app-badge">
-                <FaGooglePlay className="badge-icon" />
-                <div>
-                  <span>GET IT ON</span>
-                  <span>Google Play</span>
-                </div>
-              </button>
-              <button className="app-badge">
-                <FaApple className="badge-icon" />
-                <div>
-                  <span>Download on the</span>
-                  <span>App Store</span>
-                </div>
-              </button>
-            </div> */}
           </div>
         </div>
       </div>
@@ -141,8 +108,8 @@ const Footer = () => {
         <div className="container">
           <small>© 2025 Hyperlink Technologies. All rights reserved.</small>
           <div className="legal-links">
-            <a href="/privacy">Privacy Policy</a>
-            <a href="/terms">Terms of Service</a>
+            <a href="/privacy-policy">Privacy Policy</a>
+            <a href="/terms-of-service">Terms of Service</a>
           </div>
         </div>
       </div>

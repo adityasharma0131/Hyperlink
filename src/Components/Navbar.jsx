@@ -41,7 +41,7 @@ const Navbar = () => {
     <nav className={`navbar ${scrolled ? "scrolled" : ""}`}>
       {/* Left Section */}
       <div className="navbar-left">
-        <HashLink smooth to="#home">
+        <HashLink smooth to="/#Home">
           <img
             src={HyperLinkLogo}
             alt="Hyperlink Logo"
@@ -71,7 +71,7 @@ const Navbar = () => {
             <li key={item.id} style={{ animationDelay: `${index * 0.1}s` }}>
               <HashLink
                 smooth
-                to={`#${item.id}`}
+                to={`/#${item.id}`} // ✅ Always go to Home then scroll
                 className="nav-item"
                 onClick={() => setMobileMenuOpen(false)}
               >
@@ -81,19 +81,6 @@ const Navbar = () => {
           ))}
         </ul>
       </div>
-
-      {/* Right Section */}
-      {/* <div className="navbar-right desktop-only">
-        <HashLink
-          smooth
-          to="#contact"
-          className="sign-in"
-          onClick={() => setMobileMenuOpen(false)}
-        >
-          <span className="sign-in-text">Contact</span>
-          <span className="sign-in-hover"></span>
-        </HashLink>
-      </div> */}
     </nav>
   );
 };
