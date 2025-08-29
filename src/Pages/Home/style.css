@@ -119,6 +119,9 @@
   .home-subtext {
     font-size: 0.95rem;
   }
+  .home-bg-vector img {
+    width: 700px;
+  }
 }
 
 @media (max-width: 480px) {
