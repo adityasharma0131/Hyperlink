@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./style.css";
-import HomeVector from "../../assets/HomeVector.svg";
+import HomeVector from "../../assets/dnabg.webm";
 
 import Button from "../../Components/Button";
 import Stars from "../../Components/Stars";
@@ -75,7 +75,14 @@ const Home = () => {
       <div className="home-container" id="Home">
         <HomeSideTray isOpen={isTrayOpen} onClose={() => setTrayOpen(false)} />
         <div className="home-bg-vector">
-          <img src={HomeVector} alt="Home Background" />
+          <video
+            src={HomeVector}
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="home-bg-video"
+          />
         </div>
 
         <Stars count={20} />
